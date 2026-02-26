@@ -446,11 +446,37 @@ footer p {
   justify-content: center;
   transition: all 300ms ease;
   flex-shrink: 0;
+  position: relative;
 }
 
+.dark-mode-toggle .toggle-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  position: absolute;
+  transition: opacity 300ms ease;
+}
+
+/* Light mode: show black icon by default */
+.dark-mode-toggle .icon-light-mode {
+  opacity: 1;
+}
+
+.dark-mode-toggle .icon-dark-mode {
+  opacity: 0;
+}
+
+/* Light mode hover: show white icon and dark background */
 .dark-mode-toggle:hover {
   background: rgb(53, 53, 53);
   transform: scale(1.1);
+}
+
+.dark-mode-toggle:hover .icon-light-mode {
+  opacity: 0;
+}
+
+.dark-mode-toggle:hover .icon-dark-mode {
+  opacity: 1;
 }
 
 /* DARK MODE STYLES */
@@ -535,10 +561,43 @@ body.dark-mode .btn-color-1:hover {
 body.dark-mode .dark-mode-toggle {
   border-color: #888;
   color: #e0e0e0;
+  background: none;
 }
 
+/* Dark mode: show white icon by default */
+body.dark-mode .dark-mode-toggle .icon-light-mode {
+  opacity: 0;
+}
+
+body.dark-mode .dark-mode-toggle .icon-dark-mode {
+  opacity: 1;
+}
+
+/* Dark mode hover: show black icon and light background */
 body.dark-mode .dark-mode-toggle:hover {
-  background: #333;
+  background: #e0e0e0;
+  transform: scale(1.1);
+}
+
+body.dark-mode .dark-mode-toggle:hover .icon-light-mode {
+  opacity: 1;
+}
+
+body.dark-mode .dark-mode-toggle:hover .icon-dark-mode {
+  opacity: 0;
+}
+
+/* Invert icon colors in dark mode for better visibility */
+body.dark-mode .icon,
+body.dark-mode img[src*="linkedin.png"],
+body.dark-mode img[src*="github.png"],
+body.dark-mode img[src*="email.png"],
+body.dark-mode img[src*="arrow.png"],
+body.dark-mode img[src*="experience.png"],
+body.dark-mode img[src*="education.png"],
+body.dark-mode img[src*="checkmark.png"]
+body.dark-mode img[src*="darkmode_icon.png"] {
+  filter: invert(1);
 }
 
 body.dark-mode h1,
